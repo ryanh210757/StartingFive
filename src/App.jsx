@@ -12,20 +12,29 @@ export default function App(){
 
   function setDefaultPlayers(){
       const newArray = []
-      for(let j=0; j<data.length; j++){
-        newArray.push(data[j])
-        console.log(data[j])
+      for(let j=0; j<5; j++){
+        newArray.push(data[Math.floor(Math.random()*data.length)])
       }
       return newArray
   }
-  console.log(players)
-  console.log(data)
-  const mapPlayers = players.map(item => (
+
+  function rollButton(){
+      setPlayers(prev => {
+        return prev.map(item => {
+          return data[Math.floor(Math.random()*data.length)]
+        })
+      })
+  }
+
+console.log(players)
+const mapPlayers = players.map(item => (
       <PlayerComponent
-      value={item}
+      item={item}
       />
   ))
-  
+
+console.log(mapPlayers)
+
 
   return (
     <>
@@ -40,7 +49,9 @@ export default function App(){
           <h1>PF</h1>
           <h1>C</h1>
         </div>
-        <button>Roll</button>
+        <button
+        onClick={rollButton}
+        >Roll</button>
      </>
   )
 }
