@@ -1,7 +1,4 @@
-import { useState } from 'react'
-import React from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState } from 'react'
 import './App.css'
 import PlayerComponent from './PlayerComponent.jsx'
 import data from './data.js'
@@ -12,11 +9,17 @@ export default function App(){
 
   function setDefaultPlayers(){
       const newArray = []
-      for(let j=0; j<5; j++){
-        newArray.push(data[Math.floor(Math.random()*data.length)])
-      }
-      return newArray
-  }
+      const positions = ["PG", "SG", "SF", "PF", "C"]
+
+      for(let i=0; i<positions.length; i++){
+       
+        let player = data.filter(player => {
+          return player.position === positions[i]
+        })
+        newArray.push(player[Math.floor(Math.random()*player.length)])
+        }
+        return newArray
+        }
 
   function rollButton(){
       setPlayers(prev => {
