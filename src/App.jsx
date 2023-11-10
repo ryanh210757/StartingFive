@@ -46,14 +46,27 @@ export default function App(){
 function rollButton(){
       setPlayers(prev => {
         return prev.map(item => {
-         return item.isHeld ? item : data[Math.floor(Math.random()*data.length)]
+         return item.isHeld ? item : getPlayers(!item.isHeld, item.position)
         })
       })
     }
 
      
     
+function getPlayers(held, position){
 
+  let neww = []
+  const positions = ["PG", "SG", "SF", "PF", "C"]
+
+  for(let i=0; i<positions.length; i++){
+        if(position === positions[i] & held){
+          let player = data.filter(player => player.position === positions[i])
+          neww.push(player[Math.floor(Math.random()*player.length)])
+      }
+  }
+  return neww.find(item=>item)
+  
+}
 
 
 const mapPlayers = players.map(item => (
