@@ -12,8 +12,8 @@ export default function PlayerComponent(props) {
          <div className="squareStyle" style={styles} onClick={props.holdPlayer}>
             <img src={props.image} />
             <div className="info">
-                <p>{props.position}</p>
                 <p>{props.name}</p>
+                <h2>{props.position}</h2>
             </div>
         </div>
 

@@ -53,13 +53,13 @@ function rollButton(){
 
      
     
-function getPlayers(held, position){
+function getPlayers(notHeld, position){
 
   let neww = []
   const positions = ["PG", "SG", "SF", "PF", "C"]
 
   for(let i=0; i<positions.length; i++){
-        if(position === positions[i] & held){
+        if(position === positions[i] & notHeld){
           let player = data.filter(player => player.position === positions[i])
           neww.push(player[Math.floor(Math.random()*player.length)])
       }

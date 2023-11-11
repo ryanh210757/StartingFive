@@ -267,6 +267,12 @@ const data = [
       name: "Ivica Zubac"
    },
    { 
+      image: "https://www.basketball-reference.com/req/202106291/images/headshots/goberru01.jpg",
+      position: "C",
+      isHeld: false,
+      name: "Rudy Gobert"
+   },
+   { 
       image: "https://www.basketball-reference.com/req/202106291/images/headshots/capelca01.jpg",
       position: "C",
       isHeld: false,
